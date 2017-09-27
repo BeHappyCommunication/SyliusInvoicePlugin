@@ -4,7 +4,7 @@ bhc_show_invoice_pdf:
     requirements:
         id: '\d+'
     defaults:
-        _controller: AppBundle:Invoice:renderPdf
+        _controller: BHCInvoicePlugin:Invoice:renderPdf
 
 bhc_show_invoice:
     path: '/orders/{id}/invoice'
@@ -12,4 +12,4 @@ bhc_show_invoice:
     requirements:
         id: '\d+'
     defaults:
-        _controller: AppBundle:Invoice:render
+        _controller: BHCInvoicePlugin:Invoice:render

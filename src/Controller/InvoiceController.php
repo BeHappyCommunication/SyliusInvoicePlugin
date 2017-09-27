@@ -17,8 +17,8 @@ class InvoiceController extends Controller
         $order = $this->container->get('sylius.repository.order')->find($orderId);
         if(!$order instanceof Order)
             throw new NotFoundHttpException('The "order" has not been found');
-        
-        $html = $this->renderView('AppBundle:Invoice:pdf.html.twig', [
+    
+        $html = $this->renderView('BHCInvoicePlugin:Invoice:pdf.html.twig', [
             'order' => $order
         ]);
         
@@ -34,8 +34,8 @@ class InvoiceController extends Controller
         $order = $this->container->get('sylius.repository.order')->find($orderId);
         if(!$order instanceof Order)
             throw new NotFoundHttpException('The "order" has not been found');
-        
-        return $this->render('AppBundle:Invoice:pdf.html.twig', [
+    
+        return $this->render('BHCInvoicePlugin:Invoice:pdf.html.twig', [
             'order' => $order
         ]);
     }
