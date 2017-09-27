@@ -1,0 +1,5 @@
+services:
+    bhc.invoice_plugin.menu.admin:
+        class: BHC\InvoicePlugin\Menu\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
