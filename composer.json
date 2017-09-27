@@ -36,8 +36,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Acme\\ExamplePlugin\\": "src/",
-      "Tests\\Acme\\ExamplePlugin\\": "tests/"
+      "BHC\\InvoicePlugin\\": "src/",
+      "Tests\\BHC\\InvoicePlugin\\": "tests/"
     }
   },
   "autoload-dev": {
