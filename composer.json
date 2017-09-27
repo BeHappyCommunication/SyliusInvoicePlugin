@@ -1,5 +1,5 @@
 {
-  "name": "bhc/invoice",
+  "name": "bhc/invoice-plugin",
   "type": "sylius-plugin",
   "description": "A plugin to generate invoices in Sylius",
   "license": "MIT",
