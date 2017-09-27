@@ -1,2 +1,2 @@
 imports:
-    { resource: "@BHCInvoicePlugin/Resources/config/event_listener.yml" }
+    - { resource: "@BHCInvoicePlugin/Resources/config/event_listener.yml" }
