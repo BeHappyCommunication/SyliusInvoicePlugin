@@ -1,11 +1,11 @@
 <?php
 
-namespace Acme\ExamplePlugin;
+namespace BHC\InvoicePlugin;
 
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class AcmeExamplePlugin extends Bundle
+final class BHCInvoicePlugin extends Bundle
 {
     use SyliusPluginTrait;
 }

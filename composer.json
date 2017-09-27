@@ -1,5 +1,5 @@
 {
-  "name": "behappycommunication/sylius-invoice",
+  "name": "bhc/invoice",
   "type": "sylius-plugin",
   "description": "A plugin to generate invoices in Sylius",
   "license": "MIT",
