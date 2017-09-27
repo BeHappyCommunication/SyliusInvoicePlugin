@@ -1,0 +1,97 @@
+{% import '@SyliusUi/Macro/flags.html.twig' as flags %}
+
+<!DOCTYPE html>
+
+<html lang="{{ app.request.locale|slice(0, 2) }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>{% block title %}Sylius{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~ asset('assets/shop/css/style.css') }}">
+</head>
+<body>
+<img src="{{ app.request.getSchemeAndHttpHost() ~ asset('assets/shop/img/logo.png') }}" alt="Sylius logo"
+     class="ui small image"/>
+<h1 class="ui header">
+    <div class="content">
+        {{ 'sylius.ui.order'|trans }} #{{ order.number }}
+        <div class="sub header">
+            <div class="ui horizontal divided list">
+                <div class="item">
+                    {{ order.checkoutCompletedAt|format_date }}
+                </div>
+                <div class="item">
+                    {{ order.currencyCode }}
+                </div>
+                <div class="item">
+                    {{ flags.fromLocaleCode(order.localeCode) }}{{ order.localeCode|locale }}
+                </div>
+            </div>
+        </div>
+    </div>
+</h1>
+
+{% include '@SyliusShop/Common/Order/_addresses.html.twig' %}
+<table class="ui celled table" id="sylius-order">
+    <thead>
+    {% include '@SyliusShop/Common/Order/Table/_headers.html.twig' %}
+    </thead>
+    <tbody>
+    {% for item in order.items %}
+        {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+        
+        <tr>
+            <td>
+                {% set variant = item.variant %}
+                {% set product = variant.product %}
+                
+                <div class="ui header">
+                    {% if product.imagesByType('thumbnail') is not empty %}
+                        {% set path = product.imagesByType('thumbnail').first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
+                    {% elseif product.images.first %}
+                        {% set path = product.images.first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
+                    {% else %}
+                        {% set path = 'http://placehold.it/200x200' %}
+                    {% endif %}
+                    
+                    <img src="{{ path }}" alt="{{ product.name }}" class="ui bordered image"/>
+                    <div class="content">
+                        <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+                           class="sylius-product-name">{{ product.name }}</a>
+                        <span class="sub header sylius-product-variant-code">
+                            {{ variant.code }}
+                        </span>
+                    </div>
+                </div>
+                {% if product.hasOptions() %}
+                    <div class="ui horizontal divided list sylius-product-options">
+                        {% for optionValue in variant.optionValues %}
+                            <div class="item" data-sylius-option-name="{{ optionValue.name }}">
+                                {{ optionValue.value }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% elseif variant.name is not null %}
+                    <div class="ui horizontal divided list">
+                        <div class="item sylius-product-variant-name">
+                            {{ variant.name }}
+                        </div>
+                    </div>
+                {% endif %}
+            </td>
+            <td>
+                <span class="sylius-unit-price">{{ money.format(item.unitPrice, order.currencyCode) }}</span>
+            </td>
+            <td class="center aligned">{{ item.quantity }}</td>
+            <td class="right aligned">{{ money.format(item.subtotal, order.currencyCode) }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    {% include '@SyliusShop/Common/Order/Table/_totals.html.twig' %}
+    </tfoot>
+</table>
+
+</body>

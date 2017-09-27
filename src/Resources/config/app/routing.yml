@@ -1,0 +1,15 @@
+bhc_show_invoice_pdf:
+    path: '/orders/{id}/invoice-pdf'
+    methods: [ 'GET' ]
+    requirements:
+        id: '\d+'
+    defaults:
+        _controller: AppBundle:Invoice:renderPdf
+
+bhc_show_invoice:
+    path: '/orders/{id}/invoice'
+    methods: [ 'GET' ]
+    requirements:
+        id: '\d+'
+    defaults:
+        _controller: AppBundle:Invoice:render

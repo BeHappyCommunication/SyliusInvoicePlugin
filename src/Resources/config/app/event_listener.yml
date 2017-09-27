@@ -1,5 +1,7 @@
 services:
-    bhc.invoice_plugin.menu.admin:
-        class: BHC\InvoicePlugin\Menu\AdminMenuListener
+    bhc_invoice.listener.admin.order.show.after_shipment:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - '@@BHCInvoice/Invoice/block.html.twig'
         tags:
-            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.admin.order.show.after_shipments, method: onBlockEvent }

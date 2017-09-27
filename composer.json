@@ -16,7 +16,9 @@
   ],
   "require": {
     "php": "^7.1",
-    "sylius/sylius": "^1.0"
+    "sylius/sylius": "^1.0",
+    "sensio/generator-bundle": "^3.1",
+    "knplabs/knp-snappy-bundle": "^1.5"
   },
   "require-dev": {
     "phpspec/phpspec": "^3.2",
