@@ -1,0 +1,16 @@
+sylius_grid:
+    templates:
+        action:
+            showInvoice: "@BHCInvoice/Grid/Action/show_invoice.html.twig"
+    grids:
+        sylius_shop_account_order:
+            actions:
+                item:
+                    showInvoice:
+                        type: showInvoice
+                        label: sylius.ui.show_invoice
+                        options:
+                            link:
+                                route: bhc_show_invoice_shop
+                                parameters:
+                                    number: resource.number

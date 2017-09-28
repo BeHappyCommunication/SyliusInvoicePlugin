@@ -35,7 +35,7 @@ class InvoiceController extends Controller
         if($order->getState() !== OrderInterface::STATE_FULFILLED)
             throw new BadRequestHttpException('Order not fulfilled');
     
-        $html = $this->renderView('AppBundle:Invoice:pdf.html.twig', [
+        $html = $this->renderView('BHCInvoice:Invoice:pdf.html.twig', [
             'order' => $order
         ]);
         
@@ -67,7 +67,7 @@ class InvoiceController extends Controller
         if($order->getState() !== OrderInterface::STATE_FULFILLED)
             throw new BadRequestHttpException('Order not fulfilled');
     
-        return $this->render('AppBundle:Invoice:pdf.html.twig', [
+        return $this->render('BHCInvoice:Invoice:pdf.html.twig', [
             'order' => $order
         ]);
     }

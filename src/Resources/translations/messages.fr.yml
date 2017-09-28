@@ -1,0 +1,3 @@
+sylius:
+    ui:
+        show_invoice: 'Facture'
