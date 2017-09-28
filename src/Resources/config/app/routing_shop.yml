@@ -1,0 +1,11 @@
+bhc_show_invoice_shop_pdf:
+    path: '/orders/{number}/invoice-pdf'
+    methods: [ 'GET' ]
+    defaults:
+        _controller: BHCInvoicePlugin:Invoice:renderPdf
+
+bhc_show_invoice_shop:
+    path: '/orders/{number}/invoice'
+    methods: [ 'GET' ]
+    defaults:
+        _controller: BHCInvoicePlugin:Invoice:render
