@@ -38,8 +38,8 @@
   },
   "autoload": {
     "psr-4": {
-      "BHC\\InvoicePlugin\\": "src/",
-      "Tests\\BHC\\InvoicePlugin\\": "tests/"
+      "Behappy\\InvoicePlugin\\": "src/",
+      "Tests\\Behappy\\InvoicePlugin\\": "tests/"
     }
   },
   "autoload-dev": {
