@@ -29,11 +29,11 @@ imports:
 ```yml
 # in routing.yml
 ...
-bhc_invoice_admin:
+behappy_invoice_admin:
     resource: "@BehappyInvoicePlugin/Resources/config/app/routing_admin.yml"
     prefix: /admin
 
-bhc_invoice_shop:
+behappy_invoice_shop:
     resource: "@BehappyInvoicePlugin/Resources/config/app/routing_shop.yml"
     prefix: /{_locale}/account
     requirements:
