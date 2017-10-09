@@ -18,7 +18,7 @@
   "require": {
     "php": "^7.1",
     "sylius/sylius": "^1.0",
-    "sensio/generator-bundle": "^3.1",
+    "sensio/generator-bundle": "^3.1"
   },
   "require-dev": {
     "phpspec/phpspec": "^3.2",
