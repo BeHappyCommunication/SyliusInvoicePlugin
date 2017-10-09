@@ -3,7 +3,7 @@
 {% if order.state == 'fulfilled' %}
     <div class="ui segment" id="invoice">
         <h3 class="ui dividing header" id="shipping-state">{{ 'sylius.ui.invoice'|trans }}</h3>
-        <a href="{{ path('bhc_show_invoice_admin', { 'id': order.id }) }}"
+        <a href="{{ path('behappy_show_invoice_admin', { 'id': order.id }) }}"
            class="ui icon labeled tiny fluid button">
             <i class="eye icon"></i>
             {{- 'sylius.ui.show_invoice'|trans -}}

@@ -1,15 +1,15 @@
-bhc_show_invoice_admin_pdf:
+behappy_show_invoice_admin_pdf:
     path: '/orders/{id}/invoice-pdf'
     methods: [ 'GET' ]
     requirements:
         id: '\d+'
     defaults:
-        _controller: BHCInvoicePlugin:Invoice:renderPdf
+        _controller: BehappyInvoicePlugin:Invoice:renderPdf
 
-bhc_show_invoice_admin:
+behappy_show_invoice_admin:
     path: '/orders/{id}/invoice'
     methods: [ 'GET' ]
     requirements:
         id: '\d+'
     defaults:
-        _controller: BHCInvoicePlugin:Invoice:render
+        _controller: BehappyInvoicePlugin:Invoice:render

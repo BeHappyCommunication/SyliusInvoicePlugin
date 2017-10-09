@@ -1,6 +1,6 @@
 <?php
 
-namespace BHC\InvoicePlugin\DependencyInjection;
+namespace Behappy\InvoicePlugin\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

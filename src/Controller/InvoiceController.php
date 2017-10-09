@@ -1,6 +1,6 @@
 <?php
 
-namespace BHC\InvoicePlugin\Controller;
+namespace Behappy\InvoicePlugin\Controller;
 
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 use Sylius\Component\Core\Model\Order;
@@ -35,7 +35,7 @@ class InvoiceController extends Controller
         if($order->getState() !== OrderInterface::STATE_FULFILLED)
             throw new BadRequestHttpException('Order not fulfilled');
     
-        $html = $this->renderView('@BHCInvoice/Invoice/pdf.html.twig', [
+        $html = $this->renderView('@BehappyInvoice/Invoice/pdf.html.twig', [
             'order' => $order
         ]);
         
@@ -67,7 +67,7 @@ class InvoiceController extends Controller
         if($order->getState() !== OrderInterface::STATE_FULFILLED)
             throw new BadRequestHttpException('Order not fulfilled');
     
-        return $this->render('@BHCInvoice/Invoice/pdf.html.twig', [
+        return $this->render('@BehappyInvoice/Invoice/pdf.html.twig', [
             'order' => $order
         ]);
     }

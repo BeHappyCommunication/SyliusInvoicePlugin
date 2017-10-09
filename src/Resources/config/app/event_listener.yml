@@ -1,13 +1,13 @@
 services:
-    bhc_invoice.listener.admin.order.show.after_shipment:
+    behappy_invoice.listener.admin.order.show.after_shipment:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
         arguments:
-            - '@@BHCInvoice/Invoice/Admin/block.html.twig'
+            - '@@BehappyInvoice/Invoice/Admin/block.html.twig'
         tags:
             - { name: kernel.event_listener, event: sonata.block.event.sylius.admin.order.show.after_shipments, method: onBlockEvent }
-    bhc_invoice.listener.shop.order.show.efter_content_header:
+    behappy_invoice.listener.shop.order.show.efter_content_header:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
         arguments:
-            - '@@BHCInvoice/Invoice/Shop/view_invoice_button.html.twig'
+            - '@@BehappyInvoice/Invoice/Shop/view_invoice_button.html.twig'
         tags:
             - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.account.order.show.after_content_header, method: onBlockEvent }

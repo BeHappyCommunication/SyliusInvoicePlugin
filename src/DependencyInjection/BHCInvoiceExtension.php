@@ -1,13 +1,13 @@
 <?php
 
-namespace BHC\InvoicePlugin\DependencyInjection;
+namespace Behappy\InvoicePlugin\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-final class BHCInvoiceExtension extends Extension
+final class BehappyInvoiceExtension extends Extension
 {
     /**
      * {@inheritdoc}
