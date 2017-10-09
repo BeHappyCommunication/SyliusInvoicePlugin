@@ -24,6 +24,11 @@ public function registerBundles() {
 imports:
     ...
     - { resource: '@BehappyInvoicePlugin/Resources/config/app/config.yml' }
+...
+
+twig:
+    paths:
+        '%kernel.project_dir%/vendor/behappy/invoice-plugin/src/Resources/views': BehappyInvoice
 ```
 
 ```yml
@@ -40,6 +45,7 @@ behappy_invoice_shop:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
 ...
 ```
+
 
 # That's it !
 Now, a new button has been added in customer's account for every order marked as completed.
