@@ -3,7 +3,7 @@ A Plugin for Sylius to generate invoices
 
 # Installation-procedure
 ```bash
-$ composer require bhc/invoice-plugin
+$ composer require behappy/invoice-plugin
 ```
 
 ## Enable the plugin
@@ -13,7 +13,7 @@ $ composer require bhc/invoice-plugin
 public function registerBundles() {
 	$bundles = array(
 		// ...
-		new BHC\InvoicePlugin\BHCInvoicePlugin,
+		new Behappy\InvoicePlugin\BehappyInvoicePlugin,
 	);
 	// ...
 }
@@ -23,18 +23,18 @@ public function registerBundles() {
 #in app/config/config.yml
 imports:
     ...
-    - { resource: '@BHCInvoicePlugin/Resources/config/app/config.yml' }
+    - { resource: '@BehappyInvoicePlugin/Resources/config/app/config.yml' }
 ```
 
 ```yml
 # in routing.yml
 ...
 bhc_invoice_admin:
-    resource: "@BHCInvoicePlugin/Resources/config/app/routing_admin.yml"
+    resource: "@BehappyInvoicePlugin/Resources/config/app/routing_admin.yml"
     prefix: /admin
 
 bhc_invoice_shop:
-    resource: "@BHCInvoicePlugin/Resources/config/app/routing_shop.yml"
+    resource: "@BehappyInvoicePlugin/Resources/config/app/routing_shop.yml"
     prefix: /{_locale}/account
     requirements:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
