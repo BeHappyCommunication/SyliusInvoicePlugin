@@ -48,7 +48,7 @@ behappy_invoice_shop:
 
 
 # That's it !
-Now, a new button has been added in customer's account for every order marked as completed.
+Now, a new button has been added in customer's account for every order marked as completed (STATE_FULFILLED).
 An new block has also been added in BackOffice under the shipment section to see the invoice.
 
 # Feel free to contribute
