@@ -53,3 +53,6 @@ An new block has also been added in BackOffice under the shipment section to see
 
 # Feel free to contribute
 You can also ask your questions at the mail address in the composer.json mentioning this package.
+
+# Other
+You can also check our other packages (including Sylius plugins) at https://github.com/BeHappyCommunication
