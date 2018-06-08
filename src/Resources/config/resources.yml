@@ -1,0 +1,3 @@
+imports:
+    - { resource: '@BeHappySyliusInvoicePlugin/Resources/config/resources/invoice.yml' }
+    - { resource: '@BeHappySyliusInvoicePlugin/Resources/config/resources/invoice_company_data.yml' }

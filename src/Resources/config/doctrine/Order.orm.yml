@@ -1,0 +1,7 @@
+BeHappy\SyliusInvoicePlugin\Entity\Order:
+    type: entity
+    table: sylius_order
+    oneToMany:
+        invoices:
+            targetEntity: BeHappy\SyliusInvoicePlugin\Entity\InvoiceInterface
+            mappedBy: order

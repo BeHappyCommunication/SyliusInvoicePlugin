@@ -1,0 +1,8 @@
+sylius_resource:
+    resources:
+        behappy_invoice_plugin.invoice_company_data:
+            driver: doctrine/orm
+            classes:
+                model: BeHappy\SyliusInvoicePlugin\Entity\InvoiceCompanyData
+                interface: BeHappy\SyliusInvoicePlugin\Entity\InvoiceCompanyDataInterface
+                repository: BeHappy\SyliusInvoicePlugin\Repository\InvoiceCompanyDataRepository

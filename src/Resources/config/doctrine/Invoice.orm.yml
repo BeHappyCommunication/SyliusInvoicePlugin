@@ -1,0 +1,22 @@
+BeHappy\SyliusInvoicePlugin\Entity\Invoice:
+    type: mappedSuperclass
+    table: behappy_invoice
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        number:
+            type: string
+            length: 63
+            nullable: false
+    manyToOne:
+        companyData:
+            targetEntity:  BeHappy\SyliusInvoicePlugin\Entity\InvoiceCompanyDataInterface
+            inversedBy: invoices
+            cascade: [ ALL ]
+        order:
+            targetEntity: Sylius\Component\Order\Model\OrderInterface
+            inversedBy: invoices
+            cascade: [ ALL ]

@@ -1,14 +1,16 @@
 {% import '@SyliusUi/Macro/flags.html.twig' as flags %}
 
+{% set order = invoice.order %}
+
 <!DOCTYPE html>
 
 <html lang="{{ app.request.locale|slice(0, 2) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <title>{% block title %}Sylius{% endblock %}</title>
-    
+
+    <title>{% block title %}{{ invoice.companyData.name }}{% endblock %}</title>
+
     <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~ asset('assets/shop/css/style.css') }}">
 </head>
 <body>
@@ -16,7 +18,7 @@
      class="ui small image"/>
 <h1 class="ui header">
     <div class="content">
-        {{ 'sylius.ui.order'|trans }} #{{ order.number }}
+        {{ 'behappy_invoice_plugin.ui.invoice'|trans }} #{{ invoice.number }}
         <div class="sub header">
             <div class="ui horizontal divided list">
                 <div class="item">
@@ -41,12 +43,12 @@
     <tbody>
     {% for item in order.items %}
         {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
-        
+
         <tr>
             <td>
                 {% set variant = item.variant %}
                 {% set product = variant.product %}
-                
+
                 <div class="ui header">
                     {% if product.imagesByType('thumbnail') is not empty %}
                         {% set path = product.imagesByType('thumbnail').first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
@@ -55,7 +57,7 @@
                     {% else %}
                         {% set path = 'http://placehold.it/200x200' %}
                     {% endif %}
-                    
+
                     <img src="{{ path }}" alt="{{ product.name }}" class="ui bordered image"/>
                     <div class="content">
                         <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
@@ -94,7 +96,11 @@
     </tfoot>
 </table>
 
-<script>
+<div>
+    {{ invoice.companyData.information }}
+</div>
+
+{#<script>
     window.print();
-</script>
+</script>#}
 </body>

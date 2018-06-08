@@ -3,10 +3,12 @@
 {% if order.state == 'fulfilled' %}
     <div class="ui segment" id="invoice">
         <h3 class="ui dividing header" id="shipping-state">{{ 'sylius.ui.invoice'|trans }}</h3>
-        <a href="{{ path('behappy_show_invoice_shop', { 'number': order.number }) }}"
-           class="ui icon labeled tiny fluid button">
-            <i class="eye icon"></i>
-            {{- 'sylius.ui.show_invoice'|trans -}}
-        </a>
+        {% for invoice in order.invoices %}
+            <a href="{{ path('behappy_invoice_plugin.shop.view_pdf', { 'number': order.number, 'invoiceNumber': invoice.number }) }}"
+               class="ui icon labeled tiny fluid button">
+                <i class="eye icon"></i>
+                {{- 'sylius.ui.show_invoice'|trans -}}
+            </a>
+        {% endfor %}
     </div>
 {% endif %}

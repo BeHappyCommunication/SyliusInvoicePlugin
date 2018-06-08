@@ -1,3 +1,0 @@
-imports:
-    - { resource: "@BehappyInvoicePlugin/Resources/config/app/event_listener.yml" }
-    - { resource: "@BehappyInvoicePlugin/Resources/config/app/grids.yml" }

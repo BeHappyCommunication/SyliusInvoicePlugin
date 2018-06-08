@@ -1,0 +1,21 @@
+services:
+    behappy_invoice_plugin.custom_factory.invoice:
+        class: BeHappy\SyliusInvoicePlugin\Factory\InvoiceFactory
+        decorates: "behappy_invoice_plugin.factory.invoice"
+        public: false
+        decoration_priority: 1
+        arguments:
+            - '@behappy_invoice_plugin.custom_factory.invoice.inner'
+            - '@behappy_invoice_plugin.repository.invoice'
+            - '@behappy_company_data_plugin.repository.company_data'
+            - '@behappy_invoice_plugin.repository.invoice_company_data'
+            - '@behappy_invoice_plugin.custom_factory.invoice_company_data'
+            - '%behappy_invoice_plugin.invoice_number.length%'
+
+    behappy_invoice_plugin.custom_factory.invoice_company_data:
+        class: BeHappy\SyliusInvoicePlugin\Factory\InvoiceCompanyDataFactory
+        decorates: "behappy_invoice_plugin.factory.invoice_company_data"
+        public: false
+        decoration_priority: 1
+        arguments:
+            - '@behappy_invoice_plugin.custom_factory.invoice_company_data.inner'

@@ -1,0 +1,13 @@
+imports:
+    - { resource: resources.yml }
+    - { resource: services.yml }
+    - { resource: state_machine.yml }
+
+parameters:
+    behappy_invoice_plugin.invoice_number.length: 12
+
+sylius_order:
+    resources:
+        order:
+            classes:
+                model: BeHappy\SyliusInvoicePlugin\Entity\Order

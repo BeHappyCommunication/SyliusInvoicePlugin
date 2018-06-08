@@ -1,3 +1,9 @@
-sylius:
+behappy_invoice_plugin:
+    errors:
+        order_not_found: 'Impossible de trouver la commande demandée.'
+        invoice_not_found: 'Impossible de trouver la facture demandée.'
+        invoice_not_for_order: 'Erreur, la facture ne concerne pas cette commande.'
+        order_not_for_customer: 'Erreur, cette commande ne vous appartient pas.'
     ui:
-        show_invoice: 'Facture'
+        show_invoice: 'Facture N°%invoice_number%'
+        view_pdf: 'Voir en PDF'

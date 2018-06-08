@@ -1,0 +1,65 @@
+{% extends 'SyliusAdminBundle::layout.html.twig' %}
+
+{% set invoice = resource %}
+
+{% block title %}{{ 'behappy_invoice_plugin.ui.show_invoice'|trans({ '%invoice_number%': invoice.number }) }} {{ parent() }}{% endblock %}
+
+{% set order = invoice.order %}
+{% set customer = order.customer %}
+
+{% block content %}
+    {{ sonata_block_render_event('sylius.admin.invoice.show.before_header', {'resource': resource}) }}
+    
+    <div class="ui stackable two column grid">
+        <div class="twelve wide column">
+            {% include '@BeHappySyliusInvoicePlugin/Invoice/Admin/Show/_header.html.twig' with {
+                'invoice': invoice,
+                'order': order
+            } only %}
+        </div>
+        <div class="four wide right aligned column">
+            <a href="{{ path('behappy_invoice_plugin.admin.view_pdf', { 'id': order.id, 'invoiceId': invoice.id }) }}" class="ui labeled icon button">
+                <i class="file pdf icon"></i>
+                {{- 'behappy_invoice_plugin.ui.view_pdf'|trans -}}
+            </a>
+            <a href="{{ path('sylius_admin_order_show', {'id': order.id}) }}" class="ui labeled icon button"><i class="reply icon"></i>{{ 'sylius.ui.return'|trans }}</a>
+        </div>
+    </div>
+    
+    {{ sonata_block_render_event('sylius.admin.invoice.show.after_header', {'resource': resource}) }}
+    
+    {% include '@BeHappySyliusInvoicePlugin/Invoice/Admin/Show/_breadcrumb.html.twig' with {
+        'invoice': invoice,
+        'order': order
+    } only %}
+    
+    {{ sonata_block_render_event('sylius.admin.invoice.show.after_breadcrumb', {'resource': resource}) }}
+    
+    <div class="ui stackable grid">
+        <div class="twelve wide column">
+            {{ sonata_block_render_event('sylius.admin.invoice.show.before_summary', {'resource': resource}) }}
+            
+            <div class="ui segment">
+                {% include '@BeHappySyliusInvoicePlugin/Invoice/Admin/Show/_summary.html.twig' with {
+                    'invoice': invoice,
+                    'order': order
+                } only %}
+            </div>
+            
+            {{ sonata_block_render_event('sylius.admin.invoice.show.after_summary', {'resource': resource}) }}
+        </div>
+        <div class="four wide column">
+            {{ sonata_block_render_event('sylius.admin.invoice.show.before_customer_information', {'resource': resource}) }}
+            
+            {% include '@BeHappySyliusInvoicePlugin/Invoice/Admin/Show/_customer.html.twig' %}
+            
+            {{ sonata_block_render_event('sylius.admin.invoice.show.before_addresses', {'resource': resource}) }}
+            
+            {% include '@BeHappySyliusInvoicePlugin/Invoice/Admin/Show/_addresses.html.twig' %}
+            
+            {{ sonata_block_render_event('sylius.admin.invoice.show.after_addresses', {'resource': resource}) }}
+        </div>
+    </div>
+    
+    {{ sonata_block_render_event('sylius.admin.invoice.show.after_content', {'resource': resource}) }}
+{% endblock %}

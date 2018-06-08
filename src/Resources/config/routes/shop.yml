@@ -1,0 +1,5 @@
+behappy_invoice_plugin.shop.view_pdf:
+    path: '/orders/{number}/invoices/{invoiceNumber}/pdf'
+    methods: [ GET ]
+    defaults:
+        _controller: BeHappySyliusInvoicePlugin:Shop\Invoice:viewPdf

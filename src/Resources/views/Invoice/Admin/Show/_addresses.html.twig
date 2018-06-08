@@ -1,0 +1,12 @@
+<h4 class="ui top attached styled header">
+    {{ 'sylius.ui.shipping_address'|trans }}
+</h4>
+<div class="ui attached segment" id="shipping-address">
+    {% include '@SyliusAdmin/Common/_address.html.twig' with {'address': order.shippingAddress} %}
+</div>
+<h4 class="ui attached styled header">
+    {{ 'sylius.ui.billing_address'|trans }}
+</h4>
+<div class="ui attached segment" id="billing-address">
+    {% include '@SyliusAdmin/Common/_address.html.twig' with {'address': order.billingAddress} %}
+</div>

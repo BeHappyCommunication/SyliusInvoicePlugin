@@ -1,0 +1,18 @@
+BeHappy\SyliusInvoicePlugin\Entity\InvoiceCompanyData:
+    type: mappedSuperclass
+    table: behappy_invoice_company_data
+    manyToMany:
+        channels:
+            targetEntity: Sylius\Component\Core\Model\Channel
+            joinTable:
+                name: behappy_invoice_company_data_channel
+                joinColumns:
+                    company_data:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    channel_id:
+                        referencedColumnName: id
+    oneToMany:
+        invoices:
+            targetEntity: BeHappy\SyliusInvoicePlugin\Entity\InvoiceInterface
+            mappedBy: companyData

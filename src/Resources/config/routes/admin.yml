@@ -1,0 +1,17 @@
+behappy_invoice_plugin.admin.read:
+    path: '/orders/{id}/invoices/{invoiceId}'
+    methods: [ GET ]
+    requirements:
+        id: '\d+'
+        invoiceId: '\d+'
+    defaults:
+        _controller: BeHappySyliusInvoicePlugin:Admin\Invoice:read
+
+behappy_invoice_plugin.admin.view_pdf:
+    path: '/orders/{id}/invoices/{invoiceId}/pdf'
+    methods: [ GET ]
+    requirements:
+        id: '\d+'
+        invoiceId: '\d+'
+    defaults:
+        _controller: BeHappySyliusInvoicePlugin:Admin\Invoice:viewPdf

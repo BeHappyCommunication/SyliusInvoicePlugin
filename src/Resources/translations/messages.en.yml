@@ -1,0 +1,7 @@
+behappy_invoice_plugin:
+    errors:
+        order_not_found: 'Impossible to find the asked order.'
+        invoice_not_found: 'Impossible to find the asked invoice.'
+        invoice_not_for_order: 'Error, this invoice is not for this order.'
+    ui:
+        show_invoice: 'Invoice number °%invoice_number%'
