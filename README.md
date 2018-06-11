@@ -35,9 +35,6 @@ imports:
 ```yml
 # in routing.yml
 ...
-behappy_mail_plugin:
-    resource: '@BeHappySyliusCompanyDataPlugin/Resources/config/routing.yml'
-
 behappy_invoice_plugin.admin:
     resource: '@BeHappySyliusInvoicePlugin/Resources/config/routes/admin.yml'
     prefix: /admin
