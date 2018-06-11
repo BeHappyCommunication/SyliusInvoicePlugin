@@ -26,14 +26,14 @@ class GenerateInvoicesCommand extends ContainerAwareCommand
     {
         if (!$this->lock()) {
             $output->writeln('The command is already running in another process.');
-        
+            
             return 1;
         }
         
         $output->writeln(['Generating invoices', '==================']);
-    
+        
         $container = $this->getContainer();
-        $this->em = $container->get('doctrine')->getManager();
+        $em = $container->get('doctrine')->getManager();
         /** @var InvoiceFactoryInterface $invoiceFactory */
         $invoiceFactory = $container->get('behappy_invoice_plugin.factory.invoice');
         
@@ -43,11 +43,11 @@ class GenerateInvoicesCommand extends ContainerAwareCommand
             if ($order->getInvoices()->isEmpty()) {
                 $output->writeln('Generating invoice for order N°: '. $order->getNumber(), OutputInterface::VERBOSITY_VERBOSE);
                 $invoice = $invoiceFactory->createFromOrder($order);
-                $this->em->persist($invoice);
-                $this->em->flush();
+                $em->persist($invoice);
+                $em->flush();
             }
         }
-    
+        
         $output->writeln(['Done']);
         
         $this->release();
