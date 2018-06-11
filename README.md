@@ -57,7 +57,17 @@ Simply launch
 php bin/console doctrine:schema:update --dump-sql --force
 ``` 
 
-You might have tables referring to BeHappySyliusCompanyDataPlugin if you did not enabled it before requiring this plugin 
+You might have tables referring to BeHappySyliusCompanyDataPlugin if you did not enabled it before requiring this plugin
+
+## Optional : generate invoices
+
+In order to have invoices for previously placed orders, you can run this command :
+
+```bash
+php bin/console behappy:invoices:generate
+``` 
+
+This command will generate invoices for all orders in state FULFILLED with no invoices attached
 
 # That's it !
 From now on, each and every time an order is fulfilled, the event listener will create a new invoice and copy (if needed)
@@ -66,8 +76,6 @@ company data information into a separate table to make them static.
 A new block is also displayed in admin under the shipment section of orders that have an invoice linked.
 
 In the account section for your customers, a link is also displayed for every invoice linked to their orders.
-
-At the moment, orders fulfilled before enabling this plugin won't have any invoice linked. A command is being developped to enable this feature.
 
 # Configuration
 By default, invoices will be generated with a 12 digits number filled with 0 (str_pad(12, '0', STR_PAD_LEFT))

@@ -18,7 +18,7 @@ class GenerateInvoicesCommand extends ContainerAwareCommand
     
     public function configure(): void
     {
-        $this->setName('behappy:invoice:generate');
+        $this->setName('behappy:invoices:generate');
         $this->setDescription('Generate invoices for orders that have been places before plugin install');
     }
     
