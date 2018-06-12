@@ -23,7 +23,7 @@ public function registerBundles() {
 }
 ```
 
-```yml
+```yaml
 #in app/config/config.yml
 imports:
     ...
@@ -32,9 +32,12 @@ imports:
     ...
 ```
 
-```yml
+```yaml
 # in routing.yml
 ...
+behappy_company_data_plugin:
+    resource: '@BeHappySyliusCompanyDataPlugin/Resources/config/routing.yml'
+
 behappy_invoice_plugin.admin:
     resource: '@BeHappySyliusInvoicePlugin/Resources/config/routes/admin.yml'
     prefix: /admin
