@@ -1,5 +1,5 @@
 BeHappy\SyliusInvoicePlugin\Entity\Order:
-    type: entity
+    type: mappedSuperclass
     table: sylius_order
     oneToMany:
         invoices:
