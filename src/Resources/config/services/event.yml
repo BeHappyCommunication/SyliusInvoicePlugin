@@ -1,6 +1,7 @@
 services:
     behappy_invoice_plugin.event.listener.order:
         class: BeHappy\SyliusInvoicePlugin\Event\Listener\OrderListener
+        public: true
         arguments:
             - '@doctrine.orm.entity_manager'
             - '@behappy_invoice_plugin.custom_factory.invoice'
@@ -8,6 +9,7 @@ services:
 
     behappy_invoice_plugin.event.listener.admin.order.show.after_shipment:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        public: true
         arguments:
             - '@@BeHappySyliusInvoicePlugin/Invoice/Admin/block.html.twig'
         tags:
@@ -15,6 +17,7 @@ services:
 
     behappy_invoice_plugin.event.listener.shop.order.show.after_content_header:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        public: true
         arguments:
             - '@@BeHappySyliusInvoicePlugin/Invoice/Shop/view_invoice_button.html.twig'
         tags:
