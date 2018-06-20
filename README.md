@@ -102,7 +102,7 @@ behappy_invoice_plugin.event.invoice.pre_create
 behappy_invoice_plugin.event.invoice.post_create
 ```
 
-You can subscribe to those events and to whatever you need
+You can subscribe to those events and do whatever you need
 
 # Thanks
 This plugin is partially inspired by BitBagCommerce/SyliusInvoicingPlugin (https://github.com/BitBagCommerce/SyliusInvoicingPlugin).
