@@ -94,6 +94,16 @@ Now every invoice will be 14 digits long.
 
 In a near future, this plugin will use a number generator that you'll be free to override according to your needs.
 
+## Events
+During the invoice creation, 2 events are fired with the order as argument.
+
+```bash
+behappy_invoice_plugin.event.invoice.pre_create
+behappy_invoice_plugin.event.invoice.post_create
+```
+
+You can subscribe to those events and to whatever you need
+
 # Thanks
 This plugin is partially inspired by BitBagCommerce/SyliusInvoicingPlugin (https://github.com/BitBagCommerce/SyliusInvoicingPlugin).
 
