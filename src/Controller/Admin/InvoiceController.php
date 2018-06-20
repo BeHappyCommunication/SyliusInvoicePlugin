@@ -21,28 +21,17 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class InvoiceController extends Controller
 {
     /**
-     * @param int $id
      * @param int $invoiceId
      *
      * @return Response
      */
-    public function readAction(int $id, int $invoiceId): Response
+    public function readAction(int $id): Response
     {
         $translator = $this->container->get('translator');
-        /** @var OrderInterface|Order|null $order */
-        $order = $this->container->get('sylius.repository.order')->find($id);
-        if (!$order instanceof OrderInterface) {
-            throw new NotFoundHttpException($translator->trans('behappy_invoice_plugin.errors.order_not_found'));
-        }
-        
         /** @var InvoiceInterface $invoice */
-        $invoice = $this->container->get('behappy_invoice_plugin.repository.invoice')->find($invoiceId);
+        $invoice = $this->container->get('behappy_invoice_plugin.repository.invoice')->find($id);
         if (!$invoice instanceof InvoiceInterface) {
             throw new NotFoundHttpException($translator->trans('behappy_invoice_plugin.errors.invoice_not_found'));
-        }
-        
-        if (!$order->getInvoices()->contains($invoice)) {
-            throw new BadRequestHttpException($translator->trans('behappy_invoice_plugin.errors.invoice_not_for_order'));
         }
         
         return $this->render('@BeHappySyliusInvoicePlugin/Invoice/Admin/read.html.twig', ['resource' => $invoice]);

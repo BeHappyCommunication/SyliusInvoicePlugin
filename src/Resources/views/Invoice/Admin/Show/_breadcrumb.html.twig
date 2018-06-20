@@ -2,8 +2,7 @@
 
 {% set breadcrumbs = [
     { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
-    { label: 'sylius.ui.orders'|trans, url: path('sylius_admin_order_index') },
-    { label: '#'~order.number, url: path('sylius_admin_order_show', { 'id': order.id }) },
+    { label: 'behappy_invoice_plugin.ui.menu.invoices'|trans, url: path('behappy_invoice_plugin_admin_invoice_index') },
     { label: 'behappy_invoice_plugin.ui.show_invoice'|trans({ '%invoice_number%': invoice.number }) }
 ]
 %}

@@ -7,3 +7,9 @@ behappy_invoice_plugin:
     ui:
         show_invoice: 'Facture N°%invoice_number%'
         view_pdf: 'Voir en PDF'
+        back_to_order: 'Retour à la commande'
+        invoices: 'Factures'
+        invoice:
+            number: 'N° de facture'
+        menu:
+            invoices: 'Factures'

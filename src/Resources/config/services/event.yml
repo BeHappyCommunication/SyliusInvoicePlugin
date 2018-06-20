@@ -9,7 +9,6 @@ services:
 
     behappy_invoice_plugin.event.listener.admin.order.show.after_shipment:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
-        public: true
         arguments:
             - '@@BeHappySyliusInvoicePlugin/Invoice/Admin/block.html.twig'
         tags:
@@ -17,8 +16,12 @@ services:
 
     behappy_invoice_plugin.event.listener.shop.order.show.after_content_header:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
-        public: true
         arguments:
             - '@@BeHappySyliusInvoicePlugin/Invoice/Shop/view_invoice_button.html.twig'
         tags:
             - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.account.order.show.after_content_header, method: onBlockEvent }
+
+    behappy_invoice_plugin.admin.invoice_menu_builder_listener:
+        class: BeHappy\SyliusInvoicePlugin\Event\Listener\InvoiceMenuBuilderListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addInvoiceItem }

@@ -2,6 +2,7 @@ imports:
     - { resource: resources.yml }
     - { resource: services.yml }
     - { resource: state_machine.yml }
+    - { resource: grids.yml }
 
 parameters:
     behappy_invoice_plugin.invoice_number.length: 12

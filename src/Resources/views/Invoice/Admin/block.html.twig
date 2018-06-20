@@ -4,7 +4,7 @@
     <div class="ui segment" id="invoice">
         <h3 class="ui dividing header" id="shipping-state">{{ 'sylius.ui.invoice'|trans }}</h3>
         {% for invoice in order.invoices %}
-            <a href="{{ path('behappy_invoice_plugin.admin.read', { 'id': order.id, 'invoiceId': invoice.id }) }}"
+            <a href="{{ path('behappy_invoice_plugin_admin_invoice_show', { 'id': invoice.id }) }}"
                class="ui icon labeled tiny fluid button">
                 <i class="eye icon"></i>
                 {{- 'behappy_invoice_plugin.ui.show_invoice'|trans({ '%invoice_number%': invoice.number }) -}}

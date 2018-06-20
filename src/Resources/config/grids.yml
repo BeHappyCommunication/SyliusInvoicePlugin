@@ -1,0 +1,15 @@
+sylius_grid:
+    grids:
+        behappy_invoice_plugin_invoice:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: BeHappy\SyliusInvoicePlugin\Entity\Invoice
+            fields:
+                number:
+                    type: string
+                    label: behappy_invoice_plugin.ui.invoice.number
+            actions:
+                item:
+                    read:
+                        type: show

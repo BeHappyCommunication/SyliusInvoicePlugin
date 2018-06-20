@@ -3,5 +3,13 @@ behappy_invoice_plugin:
         order_not_found: 'Impossible to find the asked order.'
         invoice_not_found: 'Impossible to find the asked invoice.'
         invoice_not_for_order: 'Error, this invoice is not for this order.'
+        order_not_for_customer: 'Erreur, This order does not belong to you.'
     ui:
         show_invoice: 'Invoice number °%invoice_number%'
+        view_pdf: 'View as PDF'
+        back_to_order: 'Back to the order'
+        invoices: 'Invoices'
+        invoice:
+            number: 'Invoice number'
+        menu:
+            invoices: 'Invoices'
