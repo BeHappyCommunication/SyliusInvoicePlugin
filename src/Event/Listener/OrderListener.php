@@ -42,7 +42,7 @@ final class OrderListener
     /**
      * @param OrderInterface $order
      */
-    public function onOrderFulfilled(OrderInterface $order): void
+    public function onOrderPaid(OrderInterface $order): void
     {
         $preInvoiceCreateEvent = new PreInvoiceCreateEvent($order);
         $this->dispatcher->dispatch(PreInvoiceCreateEvent::NAME, $preInvoiceCreateEvent);
