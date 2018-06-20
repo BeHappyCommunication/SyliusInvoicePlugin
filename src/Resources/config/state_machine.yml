@@ -2,7 +2,7 @@ winzou_state_machine:
     sylius_order_payment:
         callbacks:
             after:
-                sylius_order_paid:
+                behappy_invoice_generate_invoice:
                     on: [ 'pay' ]
                     do: [ '@behappy_invoice_plugin.event.listener.order', 'onOrderPaid' ]
                     args: [ 'object' ]
