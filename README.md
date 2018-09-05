@@ -6,8 +6,11 @@ A Plugin for Sylius to generate invoices
 $ composer require behappy/invoice-plugin
 ```
 
+## Informations
+This plugin use Knp Snappy Bundle. Please refer to it's documentation for wkhtmltopdf installation (https://github.com/KnpLabs/snappy)
+
 ## Enable the plugin
-Since this plugin has dependencies, you must also enable those.
+Enable those plugins in AppKernel
 
 ```php
 // in app/AppKernel.php
@@ -78,6 +81,7 @@ A new block is also displayed in admin under the shipment section of orders that
 In the account section for your customers, a link is also displayed for every invoice linked to their orders.
 
 # Configuration
+## Invoice number
 By default, invoices will be generated with a 12 digits number filled with 0 (str_pad(12, '0', STR_PAD_LEFT))
 
 You can redefine this length definition by overriding this :
@@ -103,6 +107,9 @@ behappy_invoice_plugin.event.invoice.post_create
 ```
 
 You can subscribe to those events and do whatever you need
+
+## Override
+In order to override the pdf template file, you simply have to create the following file : app/Resources/BeHappySyliusInvoicePlugin/views/Invoice/pdf.html.twig
 
 # Thanks
 This plugin is partially inspired by BitBagCommerce/SyliusInvoicingPlugin (https://github.com/BitBagCommerce/SyliusInvoicingPlugin).
